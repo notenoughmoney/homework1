@@ -4,14 +4,24 @@ import 'package:flutter/material.dart';
 import 'message_model.dart';
 
 class MessageCardWidget extends StatelessWidget {
-  const MessageCardWidget({
+  MessageCardWidget({
     super.key,
     required this.message,
     required this.onMessagePressed,
-  });
+  }) {
+    this.color = (this.message.user == "Я") ? Colors.blue : Color.fromARGB(255, 54, 244, 79); 
+  }
+
+  var color;
 
   final Message message;
   final void Function() onMessagePressed;
+
+  final dateTimeStyle = const TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontStyle: FontStyle.normal,
+                        );
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +30,7 @@ class MessageCardWidget extends StatelessWidget {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: color,
             borderRadius: BorderRadius.circular(10),
             boxShadow: const [
               BoxShadow(
@@ -35,33 +45,63 @@ class MessageCardWidget extends StatelessWidget {
             ),
           ),
           padding: const EdgeInsets.all(10),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "От: ${message.user}",
-                style: const TextStyle(
-                  fontSize: 20,
-                  color: Colors.black,
-                  fontStyle: FontStyle.normal,
-                ),
+
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 7,
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "От: ${message.user}",
+                        style: const TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                      Text(
+                        message.text,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontStyle: FontStyle.normal,
+                        ),
+                      ),
+                    ]
+                  ),
+                )
               ),
-              Text(
-                'Дата: ${message.date} Время: ${message.time}',
-                  style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                    fontStyle: FontStyle.normal,
-                  ),),
-              Text(
-                message.text,
-                style: const TextStyle(
-                  fontSize: 15,
-                  color: Colors.black,
-                  fontStyle: FontStyle.normal,
-                ),),
-            ],
-          ),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        'Дата:',
+                        style: dateTimeStyle,
+                      ),
+                      Text(
+                        message.date,
+                        style: dateTimeStyle,
+                      ),
+                      Text(
+                        'Время:',
+                        style: dateTimeStyle,
+                      ),
+                      Text(
+                        message.time,
+                        style: dateTimeStyle,
+                      ),
+                    ]
+                  ),
+                )
+              ),
+            ]
+          )   
         ),
     );
   }

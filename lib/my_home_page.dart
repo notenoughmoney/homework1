@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: MessageCardWidget(
                     message: messages[i],
                     onMessagePressed: () {
-                      setState(() {});
+                      //
                     },
                   ),
                 ),

@@ -17,10 +17,20 @@ class ChatInputLine extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextField(
-            // onChanged: onTextFieldChange,
+          child: Padding(
+            padding: EdgeInsets.all(5),
+            child: TextField(
+            decoration: const InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 2, color: Colors.black)
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(width: 2, color: Colors.black)
+              )
+            ),
             controller: controller,
           ),
+          )
         ),
         const SizedBox(width: 10),
         Container(
