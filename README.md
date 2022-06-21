@@ -1,16 +1,10 @@
-# homework1
+# Flutter chat
 
-A new Flutter project.
+Чат на Flutter
 
-## Getting Started
+## С чего начать?
 
-This project is a starting point for a Flutter application.
+Запускаешь, пишешь сообщение, получаешь обратную связь от бота:
 
-A few resources to get you started if this is your first Flutter project:
+![image](https://user-images.githubusercontent.com/54038411/174854143-2063b0bd-da4a-415c-8cb4-3edf674f42d1.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
